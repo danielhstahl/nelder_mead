@@ -2,7 +2,6 @@
 #ifndef NELDERMEAD_H_
 #define NELDERMEAD_H_
 #include <cmath>
-#include "FunctionalUtilities.h"
 /*
  Copyright (C) 2010 Botao Jia
 
