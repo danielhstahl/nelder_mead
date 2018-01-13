@@ -48,7 +48,7 @@ The order of the parameter is the same as in the vector<Type> init.
 #include <functional>
 #include <iostream>
 
-namespace neldormead{
+namespace neldermead{
     template<typename D, typename OP>
     std::vector<D> Simplex(const OP& f,                   //target function
 		const std::vector<D>& init,    //initial guess of the parameters
