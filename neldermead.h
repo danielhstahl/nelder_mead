@@ -49,8 +49,11 @@ The order of the parameter is the same as in the vector<Type> init.
 #include <iostream>
 
 namespace neldermead{
+    constexpr int optparms=0;
+    constexpr int fnval=1;
+
     template<typename D, typename OP>
-    std::vector<D> Simplex(const OP& f,                   //target function
+    std::tuple<std::vector<D>, D> optimize(const OP& f,                   //target function
 		const std::vector<D>& init,    //initial guess of the parameters
 		D tol=1E8*std::numeric_limits<D>::epsilon(), //termination criteria
 		std::vector<std::vector<D> > x =  std::vector<std::vector<D> >(),
@@ -186,7 +189,7 @@ namespace neldermead{
         if(cnt==iterations){//max number of iteration achieves before tol is satisfied
             std::cout<<"Iteration limit achieves, result may not be optimal"<<std::endl;
         }
-        return x[x1];
+        return std::make_tuple(x[x1], f(x[x1]));
     }
 }
 
