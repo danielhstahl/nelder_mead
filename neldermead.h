@@ -61,11 +61,10 @@ namespace neldermead{
 	    int iterations=1E5
     ){    //iteration step number
         int N=init.size();                         //space dimension
-        const double a=1.0, b=1.0, g=0.5, h=0.5;   //coefficients
-                                               //a: reflection  -> xr  
-                                               //b: expansion   -> xe 
-                                               //g: contraction -> xc
-                                               //h: full contraction to x1
+        const double a=1.0; //see https://www.researchgate.net/publication/225691623_Implementing_the_Nelder-Mead_simplex_algorithm_with_adaptive_parameters
+        const double b=1.0+2.0/N;
+        const double g=.75-1.0/(2.0*N);
+        const double h=1.0-1.0/N;   //coefficients
         std::vector<D> xcentroid_old(N,0);   //simplex center * (N+1)
         std::vector<D> xcentroid_new(N,0);   //simplex center * (N+1)
         std::vector<D> vf(N+1,0);            //f evaluated at simplex vertexes       
