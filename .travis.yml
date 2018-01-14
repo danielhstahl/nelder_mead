@@ -1,9 +1,10 @@
 language: cpp
-sudo: true
+sudo: required
 matrix:
   include:
     # works on Precise and Trusty
     - os: linux
+      dist: trusty
       addons:
         apt:
           sources:
